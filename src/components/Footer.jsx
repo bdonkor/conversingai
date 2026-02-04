@@ -1,84 +1,115 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Twitter, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Sparkles, Twitter, Linkedin, Mail, ArrowUpRight, Shield, Globe, Cpu } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050505] border-t border-white/5 pt-16 pb-8">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
+    <footer className="bg-[#020617] border-t border-white/5 pt-20 pb-10 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
+
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          <div className="space-y-8">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-11 h-11 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/20">
                 <Sparkles className="text-white w-6 h-6" />
               </div>
-              <span className="text-2xl font-bold font-heading tracking-tight">
-                Conversing<span className="text-indigo-500">AI</span>
+              <span className="text-2xl font-bold font-heading tracking-tight text-white">
+                Conversing<span className="text-blue-500">AI</span>
               </span>
             </Link>
-            <p className="text-gray-400 max-w-xs">
-              Done-For-You AI, Automation & Digital Growth Services. We design, build, and scale your digital future.
+            <p className="text-slate-400 leading-relaxed max-w-xs text-[15px]">
+              The premier choice for managed AI infrastructure. We design, deploy, and manage the intelligent systems that power your business growth.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="mailto:hello@conversingai.com" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Mail className="w-5 h-5" />
-              </a>
+              {[
+                { icon: <Twitter className="w-5 h-5" />, href: "#" },
+                { icon: <Linkedin className="w-5 h-5" />, href: "#" },
+                { icon: <Globe className="w-5 h-5" />, href: "#" }
+              ].map((social, i) => (
+                <a key={i} href={social.href} className="w-10 h-10 rounded-xl glass border border-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300">
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Services</h4>
-            <ul className="space-y-4">
-              <li><Link to="/services" className="text-gray-400 hover:text-white flex items-center gap-1 group">AI Chat Agents <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-white flex items-center gap-1 group">AI Receptionist <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-white flex items-center gap-1 group">Website Design <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-white flex items-center gap-1 group">AI Automation <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+            <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-white mb-8 ml-1">Solutions</h4>
+            <ul className="space-y-5">
+              {[
+                { name: 'AI Chat Agents', path: '/services' },
+                { name: 'AI Voice Receptionists', path: '/services' },
+                { name: 'Lead Generation AI', path: '/lead-generation' },
+                { name: 'Website AI Integration', path: '/services' }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-slate-400 hover:text-blue-400 hover:translate-x-1 transition-all duration-300 flex items-center gap-2 group">
+                    {link.name}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Company</h4>
-            <ul className="space-y-4">
-              <li><Link to="/how-it-works" className="text-gray-400 hover:text-white">How It Works</Link></li>
-              <li><Link to="/lead-generation" className="text-gray-400 hover:text-white">Lead Generation</Link></li>
-              <li><Link to="/blog" className="text-gray-400 hover:text-white">Blog</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white">Contact Us</Link></li>
+            <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-white mb-8 ml-1">Platform</h4>
+            <ul className="space-y-5">
+              {[
+                { name: 'How It Works', path: '/how-it-works' },
+                { name: 'Strategic Audits', path: '/services' },
+                { name: 'Knowledge Hub', path: '/blog' },
+                { name: 'Request Service', path: '/contact' }
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-slate-400 hover:text-blue-400 hover:translate-x-1 transition-all duration-300 flex items-center gap-2 group text-[15px]">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Newsletter</h4>
-            <p className="text-gray-400 mb-4 text-sm">Join 2,000+ businesses getting AI growth tips.</p>
-            <form className="relative">
+            <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-white mb-8 ml-1">Newsletter</h4>
+            <p className="text-slate-400 mb-6 text-sm leading-relaxed">Join 2,000+ executives getting our weekly AI implementation insights.</p>
+            <form className="relative flex flex-col gap-3">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                placeholder="Work email address"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm focus:outline-none focus:border-blue-500 transition-all duration-300 text-white"
                 required
               />
               <button
                 type="submit"
-                className="absolute right-2 top-2 bottom-2 bg-indigo-600 px-3 rounded-lg flex items-center justify-center hover:bg-indigo-500 transition-colors"
+                className="btn btn-primary w-full justify-center py-4 rounded-xl font-bold shadow-lg shadow-blue-500/10"
               >
-                <ArrowUpRight className="w-4 h-4" />
+                Subscribe
               </button>
             </form>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© {currentYear} Conversing AI. All rights reserved.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6 text-[13px] text-slate-500 font-medium">
+            <p>© {currentYear} Conversing AI. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-600">
+              <Shield className="w-4 h-4 text-blue-500 opacity-50" /> Secure Protocol
+            </div>
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-600">
+              <Cpu className="w-4 h-4 text-blue-500 opacity-50" /> Cloudflare Edge
+            </div>
           </div>
         </div>
       </div>

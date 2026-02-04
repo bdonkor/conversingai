@@ -2,20 +2,25 @@
 
 :root {
   --bg-color: #050505;
-  --surface-color: #111111;
-  --surface-lighter: #1a1a1a;
-  --primary-color: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.3);
-  --secondary-color: #8b5cf6;
-  --accent-color: #f59e0b;
+  --surface-color: #0f172a;
+  /* Deep Navy/Blue black */
+  --surface-lighter: #1e293b;
+  --primary-color: #2563eb;
+  /* Strong Blue */
+  --primary-glow: rgba(37, 99, 235, 0.2);
+  --secondary-color: #1d4ed8;
+  /* Deeper Blue */
+  --accent-color: #38bdf8;
+  /* Light Blue/Sky */
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  /* Milky White */
+  --text-secondary: #cbd5e1;
   --text-muted: #64748b;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-hover: rgba(255, 255, 255, 0.2);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
-  --header-height: 70px;
+  --header-height: 80px;
 }
 
 * {
@@ -92,6 +97,7 @@ button {
 .text-gradient {
   background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
