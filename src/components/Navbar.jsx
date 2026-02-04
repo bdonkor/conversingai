@@ -17,39 +17,38 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Services', path: '/services' },
-    { name: 'Lead Gen', path: '/lead-generation' },
     { name: 'How It Works', path: '/how-it-works' },
     { name: 'Blog', path: '/blog' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-3 border-b' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-4 border-b' : 'bg-transparent py-6'}`}>
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 bg-primary-color rounded-xl flex items-center justify-center shadow-lg shadow-primary-glow transform group-hover:scale-105 transition-all duration-300">
-            <Sparkles className="text-white w-6 h-6" />
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-all duration-300">
+            <Sparkles className="text-white w-5 h-5" />
           </div>
-          <span className="text-2xl font-bold font-heading tracking-tight text-white">
+          <span className="text-xl font-bold font-heading tracking-tight text-white group-hover:text-blue-100 transition-colors">
             Conversing<span className="text-blue-500">AI</span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-12">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-[15px] font-medium tracking-wide transition-all duration-300 hover:text-white ${location.pathname === link.path ? 'text-white' : 'text-slate-400'
+                className={`text-sm font-medium tracking-wide transition-all duration-300 hover:text-white ${location.pathname === link.path ? 'text-white' : 'text-slate-400'
                   }`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
-          <Link to="/contact" className="btn btn-primary px-6 py-2.5 text-sm">
-            Request Service
+          <Link to="/contact" className="btn btn-primary px-6 py-2.5 text-sm shadow-lg shadow-blue-500/20">
+            Get an AI Agent
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

@@ -86,67 +86,132 @@ const Home = () => {
   return (
     <div className="overflow-hidden bg-[#020617]">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-28 pb-20">
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#020617]">
+        {/* Dynamic Background with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero.png"
-            alt="Enterprise AI"
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#020617]/95 to-[#020617]"></div>
-
-          {/* Animated Background Glows */}
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-sky-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute inset-0 bg-blue-950/20"></div>
+          {/* Centralized glow for focus */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 blur-[120px] rounded-full animate-pulse opacity-50"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 contrast-150 mix-blend-soft-light"></div>
         </div>
 
         <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="flex flex-col items-center"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-blue-500/20 mb-8 backdrop-blur-md">
-                <Sparkles className="w-4 h-4 text-blue-400" />
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-blue-100/80">Premium AI Solutions</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-blue-500/30 mb-8 backdrop-blur-xl shadow-lg shadow-blue-500/10 hover:bg-white/5 transition-colors cursor-default">
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-blue-100">Next Gen AI Receptionists</span>
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold font-heading mb-8 leading-[1.05] tracking-tight text-white">
-                Intelligent AI Systems That <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-300">Scale Your Growth</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-8 leading-[1.1] tracking-tight text-white max-w-4xl">
+                AI Chat & Voice Agents That Work for Your Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-300 text-glow">24/7</span>
               </h1>
 
-              <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-                We design, deploy, and manage custom AI agents that handle your sales, customer support, and lead generation—completely done-for-you.
+              <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
+                ConversingAI designs and deploys intelligent chatbots, voice agents, and AI receptionists that answer enquiries, book appointments, and support customers automatically — across websites, WhatsApp, and phone calls.
               </p>
 
-              <div className="flex flex-wrap gap-5 justify-center">
-                <Link to="/contact" className="btn btn-primary px-10 py-5 text-lg group">
-                  Request Service
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <div className="flex flex-col sm:flex-row gap-5 justify-center w-full sm:w-auto mb-16">
+                <Link to="/contact" className="btn btn-primary px-8 py-4 text-lg group relative overflow-hidden min-w-[200px] justify-center">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Get an AI Agent
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
-                <Link to="/how-it-works" className="btn btn-outline px-10 py-5 text-lg">
-                  See How It Works
+                <Link to="/services" className="btn btn-outline px-8 py-4 text-lg group hover:bg-white/5 min-w-[200px] justify-center">
+                  Explore Services
                 </Link>
               </div>
 
-              {/* Trust Badge */}
-              <div className="mt-16 pt-8 border-t border-white/5">
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-500 mb-6">Trusted by Forward-Thinking Companies</p>
-                <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-                  <div className="text-xl font-bold text-white tracking-tighter">FINTECH.</div>
-                  <div className="text-xl font-bold text-white tracking-tighter">AI SCALE.</div>
-                  <div className="text-xl font-bold text-white tracking-tighter">TECHFLOW.</div>
-                  <div className="text-xl font-bold text-white tracking-tighter">QUANTUM.</div>
+              {/* Hero Visual - Chat & Voice Interface Mockup */}
+              <div className="relative w-full max-w-4xl mx-auto">
+                <div className="absolute -inset-1 bg-gradient-to-b from-blue-500/20 to-transparent blur-2xl rounded-3xl opacity-50"></div>
+                <div className="glass-panel p-2 rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-sm relative overflow-hidden">
+                  {/* Mockup Header */}
+                  <div className="h-8 bg-slate-900/80 border-b border-white/5 flex items-center px-4 gap-2 rounded-t-xl">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                    </div>
+                    <div className="mx-auto text-[10px] text-slate-500 font-mono tracking-widest hidden sm:block">AI_RECEPTIONIST_LOGS</div>
+                  </div>
+
+                  {/* Mockup Body - Split View (Chat + Voice) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 bg-slate-950/50 min-h-[300px]">
+                    {/* Left: Chat Interface */}
+                    <div className="flex flex-col gap-4">
+                      <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Live Web Chat</div>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                            <Users className="w-4 h-4 text-slate-400" />
+                          </div>
+                          <div className="bg-slate-800/50 p-3 rounded-2xl rounded-tl-none text-sm text-slate-300 border border-white/5">
+                            Hi, I'd like to book a consultation for next week.
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 flex-row-reverse">
+                          <div className="w-8 h-8 rounded-full bg-blue-600/20 flex items-center justify-center shrink-0 border border-blue-500/30">
+                            <Bot className="w-4 h-4 text-blue-400" />
+                          </div>
+                          <div className="bg-blue-600/10 p-3 rounded-2xl rounded-tr-none text-sm text-blue-100 border border-blue-500/20">
+                            I can help with that! I have slots available on Tuesday at 10 AM or Thursday at 2 PM. Which works best?
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                            <Users className="w-4 h-4 text-slate-400" />
+                          </div>
+                          <div className="bg-slate-800/50 p-3 rounded-2xl rounded-tl-none text-sm text-slate-300 border border-white/5">
+                            Tuesday at 10 AM is perfect.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right: Voice Interface */}
+                    <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-white/5 pt-6 md:pt-0 md:pl-6">
+                      <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Inbound Voice Call</div>
+                      <div className="flex-1 flex flex-col items-center justify-center relative">
+                        {/* Visualizer Waves */}
+                        <div className="flex items-center gap-1 h-12 mb-6">
+                          {[...Array(8)].map((_, i) => (
+                            <div key={i} className="w-1.5 bg-blue-500 rounded-full animate-musical" style={{
+                              height: '40%',
+                              animationDelay: `${i * 0.1}s`
+                            }}></div>
+                          ))}
+                        </div>
+                        <div className="text-center">
+                          <div className="text-white font-medium mb-1">Incoming Call...</div>
+                          <div className="text-sm text-slate-400">AI Receptionist Active</div>
+                        </div>
+
+                        <div className="mt-6 flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold">
+                          <Phone className="w-3 h-3" />
+                          <span>CALL CONNECTED</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="relative py-32 border-y border-white/5">
+      <section className="relative py-24 bg-[#020617] border-y border-white/5">
         <div className="container">
           <div className="section-head mb-20 text-center">
             <span className="section-tag mb-4">Core Capabilities</span>
@@ -337,7 +402,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 
