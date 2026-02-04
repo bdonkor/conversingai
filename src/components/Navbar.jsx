@@ -77,10 +77,10 @@ const Navbar = () => {
         ))}
         <Link
           to="/contact"
-          className="btn btn-primary w-full justify-center mt-6 py-4 text-lg"
+          className="btn btn-primary w-full justify-center mt-6 py-4 text-lg shadow-lg shadow-blue-500/20"
           onClick={() => setIsOpen(false)}
         >
-          Request Service
+          Get an AI Agent
         </Link>
       </div>
 
